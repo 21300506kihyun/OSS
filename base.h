@@ -12,6 +12,7 @@ void write_to_file(Record[], char *);
 void export_to_txtfile(Record[], char *);
 void delete_all_records(Record[]);
 void delete_specific_records(Record[], char *);
- void update_records(Record[], char *);
+void update_records(Record[], char *);
+
 
 #endif

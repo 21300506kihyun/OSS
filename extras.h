@@ -5,6 +5,7 @@
 
 // function prototypes
 int defragment(Record[]);
-void display_stats(Record[]);
+void average_age(Record records[]);
+void sort_records(Record[], int );
 
 #endif

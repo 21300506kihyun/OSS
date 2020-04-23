@@ -78,10 +78,39 @@ void input_handler(char input[], Record records[]){
 		name[strlen(name) -1] = 0; // remove space
 		update_records(records,name);
 	}
-	// else if(!strcmp(input, "7"))
-	// 	defragment(records);
-	// else if(!strcmp(input, "8"))
-	// 	display_stats(records);
+	else if(!strcmp(input, "10")){
+		int n = 0;
+		int k;
+		printf("%s\n", "Enter 1 to sort by age , Enter 2 sort by name" );
+		scanf("%d",&n);
+		fflush(stdin);
+		if(n == 1){
+			printf("%s\n", "Enter 3 to ascending order, Enter 4 to descending order" );
+			scanf("%d",&k);
+			fflush(stdin);
+			if(k == 3){
+					sort_records(records, 3);
+			}
+			if(k == 4){
+					sort_records(records, 4);
+			}
+		}
+		if(n ==2 ){
+			printf("%s\n", "Enter 5 to ascending order, Enter 6 to descending order" );
+			scanf("%d",&k);
+			fflush(stdin);
+			if(k == 5){
+					sort_records(records, 5);
+			}
+			if(k == 6){
+					sort_records(records, 6);
+			}
+		}
+	}
+	else if(!strcmp(input, "11"))
+		defragment(records);
+	else if(!strcmp(input, "12"))
+		average_age(records);
 	else if(!strcmp(input, "99"))
 		printf("Terminating... bye!\n"); // Quit - no operation (an empty statement with a semi-colon)
 	else
@@ -110,6 +139,9 @@ void display_menu(){
 	printf(" 7. delete_all_record\n");
 	printf(" 8. delete_record_by_name\n");
 	printf(" 9. update_record\n");
+	printf(" 10. sort_record\n");
+	printf(" 11. defragment_record\n");
+	printf(" 12. average_age_of_player\n");
 
 	// printf(" 5. Optimize (defragment) the records\n");
 	// printf(" 6. Member statistics\n");

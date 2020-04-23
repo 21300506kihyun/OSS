@@ -267,4 +267,6 @@ void read_record_from_file(Record records[]){
 		}
 
 
+
+
 // TODO: Add more functions to fulfill the requirements
