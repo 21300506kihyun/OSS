@@ -255,9 +255,14 @@ void read_record_from_file(Record records[]){
 						printf("Enter player name, country, position, age : ");
 				    scanf("%s %s %s %d" , cname , country, position, &age);
 						fflush(stdin);
-						strcpy(record[i].name,cname);
-						strcpy(record[i].country,country);
-						strcpy(record[i].position,position);
+						for(int j = 0; j < 1000; j++){
+                if(strcmp(record[j].name, player) == 0){
+                    strcpy(record[j].name,cname);
+                    strcpy(record[j].country,country);
+                    strcpy(record[j].position,position);
+                  }
+            }
+
 						break;
 				}else if( i == 999){
 					printf("%s\n", "there are no such player" );
