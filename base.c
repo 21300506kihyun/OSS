@@ -234,9 +234,8 @@ void read_record_from_file(Record records[]){
 			}
 		}
 
-	void update_records(Record records[], char *name){
+	void update_records(Record records[]){
 			Record * record = records;
-			char *player = name;
 			int i = 0;
 			int k = 0;
 			int count = 0;
@@ -244,33 +243,69 @@ void read_record_from_file(Record records[]){
 			char cname[100];
 			char position[100];
 			int age;
+			int choice;
+			char name[100];
 			//
-
 			for(int i = 0; i < 1000; i++){
-				if(strcmp(record[0].name, "") == 0){  //처음에 아무것도 없으면 종료// strcmp 는 같으면 0 return
-					printf("%s\n", "there are no record" );
-					break;
-				}
-				if(strcmp(record[i].name, player) == 0){
-						printf("Enter player name, country, position, age : ");
-				    scanf("%s %s %s %d" , cname , country, position, &age);
-						fflush(stdin);
-						for(int j = 0; j < 1000; j++){
-                if(strcmp(record[j].name, player) == 0){
-                    strcpy(record[j].name,cname);
-                    strcpy(record[j].country,country);
-                    strcpy(record[j].position,position);
-                  }
-            }
-
-						break;
-				}else if( i == 999){
-					printf("%s\n", "there are no such player" );
+				if(strcmp(record[i].name, "") != 0){
+					count++;
+				}else{
 					break;
 				}
 			}
-		}
 
+			printf("if you want update all records press 1, or update specific records then press 2\n");
+			scanf("%d",&choice);
+
+			if(choice == 1){
+				printf("Enter player name, country, position, age : ");
+				scanf("%s %s %s %d" , cname , country, position, &age);
+				fflush(stdin);
+
+				for(int k = 0; k < count; k++){
+						strcpy(record[k].name,cname);
+						strcpy(record[k].country,country);
+						strcpy(record[k].position,position);
+						record[k].age = age;
+				}
+			}else{
+				printf("Enter the player name\n");
+				scanf("%s", name );
+				// fgets(name, 100, stdin);
+				// name[strlen(name) -1] = 0; // remove space
+				// printf("Enter player name : ");
+				// fgets(name,100,stdin);
+				// name[strlen(name) -1] = 0;
+				fflush(stdin);
+				//printf("%s\n",name );
+				//printf("%s\n", record[0].name );
+				for(int i = 0; i < 1000; i++){
+					if(strcmp(record[0].name, "") == 0){  //처음에 아무것도 없으면 종료// strcmp 는 같으면 0 return
+					printf("%s\n", "there are no record" );
+					break;
+					}
+
+					if(strcmp(record[i].name, name) == 0){
+							printf("Enter player name, country, position, age : ");
+					    scanf("%s %s %s %d" , cname , country, position, &age);
+							fflush(stdin);
+							for(int j = 0; j < 1000; j++){
+	                if(strcmp(record[j].name, name) == 0){
+	                    strcpy(record[j].name,cname);
+	                    strcpy(record[j].country,country);
+	                    strcpy(record[j].position,position);
+											record[j].age = age;
+	                  }
+	            }
+
+							break;
+					}else if( i == 999){
+						printf("%s\n", "there are no such player" );
+						break;
+					}
+			}
+		}
+}
 
 
 

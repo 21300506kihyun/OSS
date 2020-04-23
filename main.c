@@ -73,10 +73,7 @@ void input_handler(char input[], Record records[]){
 		delete_specific_records(records,name);
 	}
 	else if(!strcmp(input, "9")){
-		printf("%s\n", "Enter player name :" );
-		fgets(name, 100, stdin);
-		name[strlen(name) -1] = 0; // remove space
-		update_records(records,name);
+		update_records(records);
 	}
 	else if(!strcmp(input, "10")){
 		int n = 0;
