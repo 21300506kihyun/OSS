@@ -1,3 +1,4 @@
 ## ignore file lists ##
 
-*.o 
+*.o
+*.exe 
