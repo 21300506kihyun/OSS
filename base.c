@@ -214,7 +214,15 @@ void read_record_from_file(Record records[]){
 			int i = 0;
 			int k = 0;
 			int count = 0;
-			//
+
+			for(int i = 0; i < 1000; i++){
+				if(strcmp(record[i].name, "") != 0){
+					count++;
+				}else{
+					break;
+				}
+			}
+
 
 			for(int i = 0; i < 1000; i++){
 				if(strcmp(record[0].name, "") == 0){  //처음에 아무것도 없으면 종료// strcmp 는 같으면 0 return
@@ -222,10 +230,14 @@ void read_record_from_file(Record records[]){
 					break;
 				}
 				if(strcmp(record[i].name, player) == 0){
-						strcpy(record[i].name,"NULL");
-						strcpy(record[i].country,"NULL");
-						strcpy(record[i].position,"NULL");
-						record[i].age = 0;
+					for(int j = 0; j < 1000; j++){
+						if(strcmp(record[j].name, player) == 0){
+								strcpy(record[j].name,"NULL");
+								strcpy(record[j].country,"NULL");
+								strcpy(record[j].position,"NULL");
+								record[j].age = 0;
+							}
+						}
 						break;
 				}else if( i == 999){
 					printf("%s\n", "there are no such player" );

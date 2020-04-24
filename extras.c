@@ -73,7 +73,7 @@ void average_age(Record records[]){
 
 	avg = sum/count;
 
-	printf("%d\n", avg );
+	printf("average_age : %d\n", avg );
 
 
 }
