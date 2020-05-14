@@ -46,10 +46,19 @@ void input_handler(char input[], Record records[]){
 	else if(!strcmp(input, "3"))
 		print_all_records(records);
 	else if(!strcmp(input, "4")){
+		char mode;
+		printf("\nIf you want to find more specific, Enter 'Y': ");
+		scanf("%c",&mode);
+		getchar();
 		printf("%s\n", "Enter player name :" );
 		fgets(name, 100, stdin);
 		name[strlen(name) -1] = 0; // remove space
+		if(mode == 'Y'){
+		print_advanced_search(records,name);
+		}
+		else{
 		print_specific_records(records,name);
+		}
 	}
 	else if(!strcmp(input, "5")){
 		printf("%s\n", "Enter file name :" );
