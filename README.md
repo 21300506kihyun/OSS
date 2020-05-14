@@ -6,4 +6,4 @@
 
 #### if you want to know how to use, look the pdf file which is guideline.
 
-**make 명령어를 입력하여 complile 후 a.out파일을 실행하면 된다**
+* make 명령어를 입력하여 complile 후 a.out파일을 실행하면 된다
