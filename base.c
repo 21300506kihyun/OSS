@@ -115,6 +115,31 @@ void print_specific_records(Record records[], char *name){
 		}
 	}
 
+void print_advanced_search(Record records[],char* name){
+	int i;
+	char* player = name;
+	char p_country[100];
+	printf("\nPlease input the second condition(Country): ");
+	scanf("%s",p_country);
+	getchar();
+	
+	for(int i=0; i<1000; i++){
+		if(strcmp(records[0].name, "") == 0){  //처음에 아무것도 없으면 종료// strcmp 는 같으면 0 return
+			printf("%s\n", "there are no record" );
+			break;
+		}
+		if(strcmp(records[i].name, player) == 0 && strcmp(records[i].country, p_country)==0){
+			printf("%s %s %s %d\n", records[i].name, records[i].country, records[i].position, records[i].age );
+			break;
+		}
+		else if( i == 999){
+			printf("%s\n", "there are no such player" );
+			break;
+		}
+	}
+	printf("Done");
+}
+
 void create_record(Record records[]){
 	int count = 0;
 	Record * record = records;

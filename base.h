@@ -6,6 +6,7 @@
 // function prototypes
 void print_all_records(Record[]);
 void print_specific_records(Record[], char *);
+void print_advanced_search(Record[], char*);
 void create_record(Record[]);
 void read_record_from_file(Record[]);
 void write_to_file(Record[], char *);
